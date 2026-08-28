@@ -1,0 +1,38 @@
+@use "sass:math";
+@use "sass:map";
+@use "sass:list";
+@use "variables" as vars;
+
+@function to-rem($px, $base: 16px) {
+    @return math.div($px, $base) * 1rem;
+}
+
+@function bp-next($key) {
+    $keys: map.keys(vars.$breakpoints);
+    $index: list.index($keys, $key);
+
+    @if $index < length($keys) {
+        @return nth($keys, $index + 1);
+    }
+
+    @return null;
+}
+
+@function bp-max($key) {
+    @return map.get(vars.$breakpoints, $key) - 1px;
+}
+
+@function bp-range($from, $to) {
+    $from-value: map.get(vars.$breakpoints, $from);
+    $to-value: bp-max($to);
+
+    @return ($from-value, $to-value);
+}
+
+@function bp-resolve($value) {
+    @if map.has-key(vars.$breakpoints, $value) {
+        @return map.get(vars.$breakpoints, $value);
+    }
+
+    @return $value;
+}

@@ -1,0 +1,35 @@
+/* BREAKPOINTS */
+
+$breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
+);
+
+
+// COLOURS
+$color-primary:                 #2f9bd6;
+$color-dark:                    #1b1f27;
+$color-text:                    #333333;
+$color-text-light:              #6b7280;
+$color-bg:                      #ffffff;
+$color-border:                  #e5e7eb;
+
+// TYPOGRAPHY
+$font-main: 'Inter', 'Roboto', Arial, sans-serif;
+$font-size-base: 16px;
+
+// SPACING
+$spacer: 1rem;
+$line-height-base: 1.5;
+
+// Z-INDEX LAYERS
+
+/* PATHS */
+$assets-path: "../assets/";
+
+/* TRANSITION  */
+$transition-base: .25s ease;
+

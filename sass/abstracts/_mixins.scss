@@ -1,0 +1,99 @@
+@use "variables" as vars;
+@use "functions" as fn;
+@use "sass:map";
+
+
+@mixin respond-to($from, $to: null, $type: min) {
+    $from-is-key: map.has-key(vars.$breakpoints, $from);
+    $from-value: fn.bp-resolve($from);
+
+    @if $to == null and $type == min {
+        @if $from-value == 0 {
+            @content;
+        } @else {
+            @media (min-width: $from-value) {
+                @content;
+            }
+        }
+    }
+
+    @else if $to == null and $type == max {
+        @if $from-is-key {
+            $next: fn.bp-next($from);
+
+            @if $next != null {
+                @media (max-width: fn.bp-max($next)) {
+                    @content;
+                }
+            } @else {
+                @media (max-width: $from-value) {
+                    @content;
+                }
+            }
+        } @else {
+            @media (max-width: $from-value) {
+                @content;
+            }
+        }
+    }
+
+    @else if $type == between {
+        $upto: $to;
+        @if $to == null {
+            $upto: $from;
+        }
+        $upto-is-key: map.has-key(vars.$breakpoints, $upto);
+
+        @if $from-is-key and $upto-is-key {
+            $range: fn.bp-range($from, $upto);
+            $min: nth($range, 1);
+            $max: nth($range, 2);
+
+            @media (min-width: $min) and (max-width: $max) {
+                @content;
+            }
+        } @else {
+            $min: fn.bp-resolve($from);
+            $max: fn.bp-resolve($upto);
+
+            @media (min-width: $min) and (max-width: $max) {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin hide {
+    display: none;
+}
+
+@mixin hidden-at($breakpoint, $type: min) {
+    @if $type == between {
+        $next: fn.bp-next($breakpoint);
+
+        @include respond-to($breakpoint, $next, between) {
+            @include hide;
+        }
+    } @else {
+        @include respond-to($breakpoint, null, $type) {
+            @include hide;
+        }
+    }
+}
+
+@mixin main-padding($paddings) {
+    @each $key, $value in $paddings {
+        @include respond-to($key) {
+            padding: $value;
+        }
+    }
+}
+
+@mixin page-padding {
+    padding-inline: vars.$spacer;
+
+    @include respond-to(md) {
+        padding-inline: vars.$spacer * 2;
+    }
+}
+

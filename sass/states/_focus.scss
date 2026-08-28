@@ -1,0 +1,7 @@
+@use "../abstracts" as *;
+
+%focus-ring {
+    outline: 2px solid $color-primary;
+    outline-offset: 4px;
+}
+
