@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-  <title>JavaScript Arrays</title>
+  <title>Image Email Assignment</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
@@ -16,6 +16,126 @@
 </head>
 
 <body id="top">
+
+<header class="header">
+  <div class="container">
+    <h1>
+      <i class="fa-regular fa-images"></i>
+      Image Email Assignment
+    </h1>
+    <p>Assign images to one or more email addresses.</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="image-section">
+    <div class="container">
+
+      <div class="image-card">
+
+        <div class="image-wrapper">
+          <img
+            id="current-image"
+            src="https://picsum.photos/600/400"
+            alt="Random image">
+        </div>
+
+        <div class="controls">
+
+          <button id="new-image-btn" class=" ">
+          </button>
+
+        </div>
+
+      </div>
+
+      </div>
+  </section>
+
+  <section class="assignment-section">
+    <div class="container">
+
+      <h2>Assign Image</h2>
+
+      <form id="assignment-form">
+
+        <div class="form-group">
+          <label for="email">
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="example@email.com"
+            required>
+
+          <small id="email-error"></small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-link"></i>
+          Assign Image
+        </button>
+
+      </form>
+
+    </div>
+  </section>
+
+  <section class="assignments-section">
+    <div class="container">
+
+      <h2>Assigned Images</h2>
+
+      <div id="assignments-container">
+
+        <!--
+        Example Generated Structure
+
+        <div class="email-group">
+
+            <h3>john@email.com</h3>
+
+            <div class="image-gallery">
+
+                <img src="..." alt="">
+                <img src="..." alt="">
+
+            </div>
+
+        </div>
+        -->
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__container">
+    <div class="footer__info">
+      <p>© 2026 Tatsiana Kashko</p>
+      <p>JavaScript Arrays Project</p>
+    </div>
+
+    <div class="footer__socials">
+      <a
+        href="https://github.com/feafania"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="View GitHub profile"
+      >
+        <i class="fa-brands fa-github"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+
+  </div>
+</footer>
 
 <script src="js/jquery-4.0.0.js"></script>
 <script type="module" src="js/main.js"></script>
