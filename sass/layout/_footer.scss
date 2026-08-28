@@ -1,0 +1,11 @@
+.footer {
+    &__container {}
+
+    &__info {}
+
+    &__socials {
+        & a:hover {}
+
+        i {}
+    }
+}
