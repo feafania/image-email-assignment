@@ -1,0 +1,64 @@
+@use "../abstracts" as *;
+@use "../states" as *;
+
+.assignment-card {
+    padding: $big-spacer;
+    border: 1px solid $color-border;
+    border-radius: 12px;
+    margin-bottom: $big-spacer;
+
+    @extend %fade-in-up;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: $spacer;
+        margin-bottom: $spacer;
+    }
+
+    &__email {
+        display: flex;
+        align-items: center;
+        gap: $spacer * .5;
+        margin: 0;
+        font-size: 1rem;
+        font-weight: $font-weight-demi;
+        color: $color-dark;
+        word-break: break-word;
+
+        &::before {
+            content: "\f0e0"; // fa-envelope
+            font-family: "Font Awesome 6 Free", serif;
+            font-weight: $font-weight-extra;
+            color: $color-primary;
+            font-size: .875rem;
+        }
+    }
+
+    &__remove {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        color: $color-text-light;
+        font-size: .9375rem;
+        transition: color $transition-base, background-color $transition-base;
+
+        &:hover {
+            color: $color-error;
+            background: rgba($color-error, .08);
+        }
+
+        &:focus-visible {
+            @extend %focus-ring;
+        }
+    }
+}
