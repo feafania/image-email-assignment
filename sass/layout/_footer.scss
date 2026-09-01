@@ -1,11 +1,56 @@
-.footer {
-    &__container {}
+@use "../abstracts" as *;
+@use "../states" as *;
 
-    &__info {}
+.footer {
+    border-top: 1px solid $color-border;
+    padding-block: $spacer * 1.5;
+    margin-top: $spacer * 3;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacer;
+        text-align: center;
+
+        @include respond-to(sm) {
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: left;
+        }
+    }
+
+    &__info {
+        p {
+            margin: 0;
+            font-size: .875rem;
+            color: $color-text-light;
+            line-height: 1.4;
+        }
+    }
 
     &__socials {
-        & a:hover {}
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: $spacer * .375;
+            color: $color-text;
+            text-decoration: none;
+            font-size: .875rem;
+            transition: color $transition-base;
 
-        i {}
+            i {
+                font-size: 1.125rem;
+            }
+
+            &:hover,
+            &:focus-visible {
+                color: $color-primary;
+            }
+
+            &:focus-visible {
+                @extend %focus-ring;
+            }
+        }
     }
 }
