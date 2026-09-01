@@ -1,0 +1,68 @@
+@use "../abstracts" as *;
+@use "../states" as *;
+
+.assignment-card__gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: $spacer * .5;
+
+    @include respond-to(md) {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: $small-spacer;
+    }
+}
+
+.assignment-card__image {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid $color-border;
+
+    img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform $transition-base;
+    }
+
+    &:hover img,
+    &:focus-within img {
+        transform: scale(1.06);
+    }
+
+    &-remove {
+        position: absolute;
+        top: $spacer * .375;
+        right: $spacer * .375;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba($color-dark, .55);
+        color: $color-bg;
+        font-size: .6875rem;
+        opacity: 0;
+        transform: translateY(-4px);
+        transition: opacity $transition-base, transform $transition-base, background-color $transition-base;
+
+        &:hover {
+            background: $color-error;
+        }
+
+        &:focus-visible {
+            @extend %focus-ring;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    &:hover &-remove,
+    &:focus-within &-remove {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

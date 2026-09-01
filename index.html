@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
@@ -34,16 +38,21 @@
 
       <div class="image-card">
 
-        <div class="image-wrapper">
+        <div class="image-card__wrapper">
           <img
             id="current-image"
             src="https://picsum.photos/600/400"
             alt="Random image">
         </div>
 
-        <div class="controls">
+        <p class="image-card__status">
+          Current image ready for assignment
+        </p>
 
-          <button id="new-image-btn" class=" ">
+        <div class="image-card__controls">
+
+          <button id="new-image-btn" class="image-card__btn">
+            <i class="fa-solid fa-rotate"></i>
           </button>
 
         </div>
@@ -54,13 +63,13 @@
   </section>
 
   <section class="assignment-section">
-    <div class="container">
+    <div class="container assignment-section__container">
 
-      <h2>Assign Image</h2>
+      <h2 class="assignment-section__title">Assign Image</h2>
 
       <form id="assignment-form">
 
-        <div class="form-group">
+        <div class="assignment-form__group">
           <label for="email">
             Email Address
           </label>
@@ -87,26 +96,78 @@
   <section class="assignments-section">
     <div class="container">
 
-      <h2>Assigned Images</h2>
+      <h2 class="assignments-section__title">Assigned Images</h2>
 
-      <div id="assignments-container">
+      <div
+        id="assignments-container"
+        class="assignments-section__container"
+        aria-live="polite"
+      >  <!-- "polite" - for not critical changes> -->
 
-        <!--
-        Example Generated Structure
+        <article class="assignment-card">
+          <div class="assignment-card__header">
 
-        <div class="email-group">
+            <h3 class="assignment-card__email">
+              john@email.com
+            </h3>
 
-            <h3>john@email.com</h3>
+            <button class="assignment-card__remove">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
 
-            <div class="image-gallery">
+          </div>
 
-                <img src="..." alt="">
-                <img src="..." alt="">
+          <div class="assignment-card__gallery">
+            <div class="assignment-card__image">
 
+              <img src="https://picsum.photos/600/400" alt="Assigned image">
+              <button class="assignment-card__image-remove">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+            <div class="assignment-card__image">
+
+              <img src="https://picsum.photos/600/400" alt="Assigned image">
+              <button class="assignment-card__image-remove">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
             </div>
 
-        </div>
-        -->
+          </div>
+
+        </article>
+        <article class="assignment-card">
+          <div class="assignment-card__header">
+
+            <h3 class="assignment-card__email">
+              anny@email.com
+            </h3>
+
+            <button class="assignment-card__remove">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+
+          </div>
+
+          <div class="assignment-card__gallery">
+            <div class="assignment-card__image">
+
+              <img src="https://picsum.photos/600/400" alt="Assigned image">
+              <button class="assignment-card__image-remove">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+            <div class="assignment-card__image">
+
+              <img src="https://picsum.photos/600/400" alt="Assigned image">
+              <button class="assignment-card__image-remove">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+
+          </div>
+
+        </article>
 
       </div>
 

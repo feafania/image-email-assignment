@@ -1,3 +1,26 @@
-.assignments-section {
+@use "../abstracts" as *;
 
+.assignments-section {
+    padding-block: $spacer * 2.5;
+
+    @include respond-to(md) {
+        padding-block: $spacer * 3.5;
+    }
+
+    &__title {
+        margin: 0 0 $spacer * 1.5;
+        font-size: 1.25rem;
+        font-weight: $font-weight-bold;
+        color: $color-dark;
+    }
+
+    &__container {
+        &:empty::after {
+            content: "No images assigned yet — assign one above.";
+            display: block;
+            padding-block: $spacer;
+            color: $color-text-light;
+            font-size: .9375rem;
+        }
+    }
 }
