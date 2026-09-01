@@ -1,11 +1,48 @@
+@use "../abstracts" as *;
+@use "../states" as *;
+@use "sass:color";
+
 .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacer * .5;
 
-}
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: $small-spacer $big-spacer;
 
-.btn-primary {
+    font-family: $font-main;
+    font-size: 1rem;
+    font-weight: $font-weight-demi;
+    cursor: pointer;
+    transition: background-color $transition-base, transform $transition-base;
 
-}
+    &:active {
+        transform: scale(.98);
+    }
 
-.btn-secondary {
+    &:focus-visible {
+        @extend %focus-ring;
+    }
 
+    &-primary {
+        background: $color-primary;
+        color: $color-bg;
+
+        &:hover {
+            background: color.adjust($color-primary, $lightness: -8%);
+        }
+    }
+
+    &-secondary {
+        background: transparent;
+        color: $color-primary;
+        border: 1px solid $color-primary;
+
+        &:hover {
+            background: rgba($color-primary, .08);
+        }
+    }
 }

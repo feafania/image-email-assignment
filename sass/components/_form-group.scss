@@ -1,3 +1,50 @@
-.form-group {
+@use "../abstracts" as *;
 
+.assignment-form__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $big-spacer;
+
+    label {
+        margin-bottom: $spacer * .375;
+        font-size: .875rem;
+        font-weight: $font-weight-demi;
+        color: $color-dark;
+    }
+
+    input {
+        font-family: $font-main;
+        font-size: 1rem;
+        padding: $spacer * .625 $small-spacer;
+        border: 1px solid $color-border;
+        border-radius: 8px;
+        background: $color-bg;
+        color: $color-text;
+        transition: border-color $transition-base, box-shadow $transition-base;
+
+        &::placeholder {
+            color: $color-placeholder;
+        }
+
+        &:focus-visible {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0 0 0 3px rgba($color-primary, .2);
+        }
+
+        &:invalid:not(:placeholder-shown) {
+            border-color: $color-error;
+        }
+    }
+
+    small {
+        min-height: 1.125rem;
+        margin-top: $spacer * .375;
+        font-size: .8125rem;
+        color: $color-error;
+
+        &:empty {
+            @include hide;
+        }
+    }
 }

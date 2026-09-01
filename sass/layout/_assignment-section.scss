@@ -1,3 +1,19 @@
-.assignment-section {
+@use "../abstracts" as *;
 
+.assignment-section {
+    padding-block: $spacer * 2;
+    background: rgba($color-primary, .04);
+    border-block: 1px solid $color-border;
+
+    &__title {
+        margin: 0 0 $big-spacer;
+        font-size: 1.25rem;
+        font-weight: $font-weight-bold;
+        color: $color-dark;
+        text-align: center;
+    }
+
+    &__container {
+        max-width: 480px;
+    }
 }
