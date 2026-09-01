@@ -1,4 +1,9 @@
+@use "../abstracts" as *;
+
 .container {
-    width: min(70rem, 100%);
+    width: 100%;
+    max-width: $max-width;
     margin-inline: auto;
+
+    @include page-padding;
 }

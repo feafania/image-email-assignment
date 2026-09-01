@@ -15,13 +15,13 @@ html {
 body {
     margin: 0;
     font-family: $font-main;
-    font-optical-sizing: auto;
-    font-weight: 400;
+    font-optical-sizing: auto; // change letter proportions for variable fonts
+    font-weight: $font-weight-regular;
     font-style: normal;
     color: $color-text;
     line-height: $line-height-base;
-    background-color: $color-side-menu-bg;
-    -webkit-font-smoothing: antialiased;
+    background-color: $color-bg-mobile;
+    -webkit-font-smoothing: antialiased; // smooth pixels on the edge for variable fonts (for Mac)
     -moz-osx-font-smoothing: grayscale;
 
     @include respond-to(md) {
@@ -29,12 +29,9 @@ body {
     }
 }
 
-
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     margin: 0 0 0.5em;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     color: $color-dark;
 }
 
@@ -69,3 +66,9 @@ button {
 button:focus-visible {
     @extend %focus-ring;
 }
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
