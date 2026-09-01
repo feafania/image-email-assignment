@@ -1,7 +1,14 @@
+@use "../abstracts" as *;
+
 .image-section {
+    padding-block: $spacer * 2;
 
-}
+    @include respond-to(md) {
+        padding-block: $spacer * 3;
+    }
 
-.image-wrapper {
-
+    .container {
+        display: flex;
+        justify-content: center;
+    }
 }

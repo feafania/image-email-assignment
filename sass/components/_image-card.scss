@@ -1,3 +1,72 @@
-.image-card {
+@use "../abstracts" as *;
+@use "../states" as *;
+@use "sass:color";
 
+.image-card {
+    width: 100%;
+    max-width: 600px;
+    background: $color-bg;
+    border: 1px solid $color-border;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba($color-dark, .06);
+
+    &__wrapper {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+        background: $color-border;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform $transition-base;
+        }
+
+        &:hover img {
+            transform: scale(1.02);
+        }
+    }
+
+    &__status {
+        text-align: center;
+        font-size: .875rem;
+        font-weight: $font-weight-medium;
+        color: $color-text-light;
+        padding-block: $spacer;
+    }
+
+    &__controls {
+        display: flex;
+        justify-content: center;
+        padding: 0 $big-spacer $big-spacer;
+    }
+
+    &__btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        background: $color-primary;
+        color: $color-bg;
+        cursor: pointer;
+        transition: background-color $transition-base, transform $transition-base;
+
+        font-weight: $font-weight-extra;
+        font-size: 1.125rem;
+
+        &:hover {
+            background: color.adjust($color-primary, $lightness: -8%);
+        }
+
+        &:active {
+            transform: rotate(45deg);
+        }
+
+        &:focus-visible {
+            @extend %focus-ring;
+        }
+    }
 }
