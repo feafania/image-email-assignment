@@ -32,9 +32,16 @@
             box-shadow: 0 0 0 3px rgba($color-primary, .2);
         }
 
-        &:invalid:not(:placeholder-shown) {
+        &.is-invalid {
             border-color: $color-error;
+            background-color: rgba($color-error, .03);
+
+            &:focus-visible {
+                border-color: $color-error;
+                box-shadow: 0 0 0 3px rgba($color-error, .2);
+            }
         }
+
     }
 
     small {
@@ -46,5 +53,12 @@
         &:empty {
             @include hide;
         }
+    }
+}
+
+#assignment-form.is-resetting {
+    .assignment-form__group input,
+    .assignment-form__group small {
+        opacity: 0;
     }
 }

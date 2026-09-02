@@ -21,9 +21,8 @@ export function removeErrorElement($field) {
 }
 
 function createErrorElement(id, message) {
-  return $("<span>", {
+  return $("<small>", {
     id,
-    class: "contact__error",
     role: "alert",
     text: message
   });

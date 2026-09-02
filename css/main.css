@@ -341,8 +341,13 @@ p {
   border-color: #2f9bd6;
   box-shadow: 0 0 0 3px rgba(47, 155, 214, 0.2);
 }
-.assignment-form__group input:invalid:not(:placeholder-shown) {
+.assignment-form__group input.is-invalid {
   border-color: #d64545;
+  background-color: rgba(214, 69, 69, 0.03);
+}
+.assignment-form__group input.is-invalid:focus-visible {
+  border-color: #d64545;
+  box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.2);
 }
 .assignment-form__group small {
   min-height: 1.125rem;
@@ -352,6 +357,11 @@ p {
 }
 .assignment-form__group small:empty {
   display: none;
+}
+
+#assignment-form.is-resetting .assignment-form__group input,
+#assignment-form.is-resetting .assignment-form__group small {
+  opacity: 0;
 }
 
 .image-card {
