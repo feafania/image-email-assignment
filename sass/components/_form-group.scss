@@ -3,10 +3,10 @@
 .assignment-form__group {
     display: flex;
     flex-direction: column;
-    margin-bottom: $big-spacer;
+    margin-bottom: spacer(xl);
 
     label {
-        margin-bottom: $spacer * .375;
+        margin-bottom: spacer(xxs);
         font-size: .875rem;
         font-weight: $font-weight-demi;
         color: $color-dark;
@@ -15,7 +15,7 @@
     input {
         font-family: $font-main;
         font-size: 1rem;
-        padding: $spacer * .625 $small-spacer;
+        padding: spacer(sm) spacer(md);
         border: 1px solid $color-border;
         border-radius: 8px;
         background: $color-bg;
@@ -39,7 +39,7 @@
 
     small {
         min-height: 1.125rem;
-        margin-top: $spacer * .375;
+        margin-top: spacer(xxs);
         font-size: .8125rem;
         color: $color-error;
 

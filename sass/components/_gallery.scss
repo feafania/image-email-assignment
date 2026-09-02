@@ -4,11 +4,11 @@
 .assignment-card__gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: $spacer * .5;
+    gap: spacer(xs);
 
     @include respond-to(md) {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: $small-spacer;
+        gap: spacer(md);
     }
 }
 
@@ -19,10 +19,10 @@
     border: 1px solid $color-border;
 
     img {
-        display: block;
         width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
+        object-position: center;
         cursor: pointer;
         transition: transform $transition-base;
     }
@@ -34,14 +34,17 @@
 
     &-remove {
         position: absolute;
-        top: $spacer * .375;
-        right: $spacer * .375;
+        top: spacer(xxs);
+        right: spacer(xxs);
+
         width: 26px;
         height: 26px;
         border-radius: 50%;
+
         display: flex;
         align-items: center;
         justify-content: center;
+
         background: rgba($color-dark, .55);
         color: $color-bg;
         font-size: .6875rem;

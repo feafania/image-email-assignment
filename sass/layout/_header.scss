@@ -4,16 +4,16 @@
 .header {
     background: linear-gradient(135deg, $color-dark 0%, color.adjust($color-dark, $lightness: -8%) 100%);
     color: $color-bg;
-    padding-block: $spacer * 2;
+    padding-block: spacer(xxxl);
 
     @include respond-to(md) {
-        padding-block: $spacer * 2.5;
+        padding-block: spacer(lg) * 2.5;
     }
 
     h1 {
         display: flex;
         align-items: center;
-        gap: $spacer * .5;
+        gap: spacer(xs);
         margin: 0;
         font-size: clamp(1.75rem, 3vw, 2.25rem);
         font-weight: $font-weight-bold;
@@ -31,7 +31,7 @@
     }
 
     p {
-        margin: $spacer * .5 0 0;
+        margin: spacer(xs) 0 0;
         color: rgba($color-bg, .7);
         font-size: .9375rem;
 

@@ -2,10 +2,10 @@
 @use "../states" as *;
 
 .assignment-card {
-    padding: $big-spacer;
+    padding: spacer(xl);
     border: 1px solid $color-border;
     border-radius: 12px;
-    margin-bottom: $big-spacer;
+    margin-bottom: spacer(xl);
 
     @extend %fade-in-up;
 
@@ -17,14 +17,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: $spacer;
-        margin-bottom: $spacer;
+        gap: spacer(lg);
+        margin-bottom: spacer(lg);
     }
 
     &__email {
         display: flex;
         align-items: center;
-        gap: $spacer * .5;
+        gap: spacer(xs);
         margin: 0;
         font-size: 1rem;
         font-weight: $font-weight-demi;
@@ -45,6 +45,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+
         width: 32px;
         height: 32px;
         border-radius: 6px;

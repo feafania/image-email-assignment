@@ -32,9 +32,16 @@ $font-weight-bold:    700;
 $font-weight-extra:   900;
 
 // SPACING
-$spacer: 1rem;
-$big-spacer: $spacer * 1.25;
-$small-spacer: $spacer * .75;
+$spacer: (
+        xxs: 0.375rem,
+        xs: 0.5rem,
+        sm: 0.625rem,
+        md: 0.75rem,
+        lg: 1rem,
+        xl: 1.25rem,
+        xxl: 1.5rem,
+        xxxl: 2rem,
+);
 
 $line-height-base: 1.5;
 

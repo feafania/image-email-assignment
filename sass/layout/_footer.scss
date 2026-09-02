@@ -3,14 +3,14 @@
 
 .footer {
     border-top: 1px solid $color-border;
-    padding-block: $spacer * 1.5;
-    margin-top: $spacer * 3;
+    padding-block: spacer(xxl);
+    margin-top: spacer(lg) * 3;
 
     &__container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: $spacer;
+        gap: spacer(lg);
         text-align: center;
 
         @include respond-to(sm) {
@@ -33,7 +33,7 @@
         a {
             display: inline-flex;
             align-items: center;
-            gap: $spacer * .375;
+            gap: spacer(xxs);
             color: $color-text;
             text-decoration: none;
             font-size: .875rem;

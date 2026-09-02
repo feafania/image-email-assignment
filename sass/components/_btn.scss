@@ -6,12 +6,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: $spacer * .5;
+    gap: spacer(xs);
 
     width: 100%;
     border: none;
     border-radius: 8px;
-    padding: $small-spacer $big-spacer;
+    padding: spacer(md) spacer(xl);
 
     font-family: $font-main;
     font-size: 1rem;

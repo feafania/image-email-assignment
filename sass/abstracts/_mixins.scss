@@ -90,10 +90,10 @@
 }
 
 @mixin page-padding {
-    padding-inline: vars.$spacer;
+    padding-inline: fn.spacer(lg);
 
     @include respond-to(md) {
-        padding-inline: vars.$spacer * 2;
+        padding-inline: fn.spacer(xxxl);
     }
 }
 

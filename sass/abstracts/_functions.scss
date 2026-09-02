@@ -36,3 +36,8 @@
 
     @return $value;
 }
+
+@function spacer($key) {
+    @return map-get(vars.$spacer, $key);
+}
+

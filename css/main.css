@@ -213,6 +213,9 @@ p {
   font-weight: 700;
   color: #1b1f27;
 }
+.assignments-section:has(.assignments-section__container:empty) .assignments-section__title {
+  margin-bottom: 1rem;
+}
 .assignments-section__container:empty::after {
   content: "No images assigned yet — assign one above.";
   display: block;
@@ -365,7 +368,6 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   transition: transform 0.25s ease;
 }
 .image-card__wrapper:hover img {
@@ -420,10 +422,10 @@ p {
   border: 1px solid #e5e7eb;
 }
 .assignment-card__image img {
-  display: block;
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
+  object-position: center;
   cursor: pointer;
   transition: transform 0.25s ease;
 }

@@ -1,24 +1,28 @@
 @use "../abstracts" as *;
 
 .assignments-section {
-    padding-block: $spacer * 2.5;
+    padding-block: spacer(lg) * 2.5;
 
     @include respond-to(md) {
-        padding-block: $spacer * 3.5;
+        padding-block: spacer(lg) * 3.5;
     }
 
     &__title {
-        margin: 0 0 $spacer * 1.5;
+        margin: 0 0 spacer(xxl);
         font-size: 1.25rem;
         font-weight: $font-weight-bold;
         color: $color-dark;
+    }
+
+    &:has(&__container:empty) &__title {
+        margin-bottom: spacer(lg);
     }
 
     &__container {
         &:empty::after {
             content: "No images assigned yet — assign one above.";
             display: block;
-            padding-block: $spacer;
+            padding-block: spacer(lg);
             color: $color-text-light;
             font-size: .9375rem;
         }

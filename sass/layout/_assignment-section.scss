@@ -1,12 +1,12 @@
 @use "../abstracts" as *;
 
 .assignment-section {
-    padding-block: $spacer * 2;
+    padding-block: spacer(xxxl);
     background: rgba($color-primary, .04);
     border-block: 1px solid $color-border;
 
     &__title {
-        margin: 0 0 $big-spacer;
+        margin: 0 0 spacer(xl);
         font-size: 1.25rem;
         font-weight: $font-weight-bold;
         color: $color-dark;
