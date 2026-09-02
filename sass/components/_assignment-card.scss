@@ -4,13 +4,20 @@
 .assignment-card {
     padding: spacer(xl);
     border: 1px solid $color-border;
-    border-radius: 12px;
+    border-radius: 8px;
     margin-bottom: spacer(xl);
+
+    transition: border-color $transition-base, box-shadow $transition-base;
 
     @extend %fade-in-up;
 
     &:last-child {
         margin-bottom: 0;
+    }
+
+    &:hover {
+        border-color: rgba($color-primary, .25);
+        box-shadow: 0 4px 12px rgba($color-dark, .06);
     }
 
     &__header {
@@ -28,8 +35,9 @@
         margin: 0;
         font-size: 1rem;
         font-weight: $font-weight-demi;
+
         color: $color-dark;
-        word-break: break-word;
+        overflow-wrap: anywhere;
 
         &::before {
             content: "\f0e0"; // fa-envelope

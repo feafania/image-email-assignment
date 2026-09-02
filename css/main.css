@@ -261,11 +261,16 @@ p {
 .assignment-card {
   padding: 1.25rem;
   border: 1px solid #e5e7eb;
-  border-radius: 12px;
+  border-radius: 8px;
   margin-bottom: 1.25rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .assignment-card:last-child {
   margin-bottom: 0;
+}
+.assignment-card:hover {
+  border-color: rgba(47, 155, 214, 0.25);
+  box-shadow: 0 4px 12px rgba(27, 31, 39, 0.06);
 }
 .assignment-card__header {
   display: flex;
@@ -282,7 +287,7 @@ p {
   font-size: 1rem;
   font-weight: 600;
   color: #1b1f27;
-  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 .assignment-card__email::before {
   content: "\f0e0";
@@ -459,6 +464,12 @@ p {
 .assignment-card__image:hover .assignment-card__image-remove, .assignment-card__image:focus-within .assignment-card__image-remove {
   opacity: 1;
   transform: translateY(0);
+}
+@media (hover: none) {
+  .assignment-card__image .assignment-card__image-remove {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fade-in {
