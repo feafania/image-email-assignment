@@ -8,7 +8,7 @@ export default function initImageButtonHandler() {
 function getRandomImage() {
   const url = getRandomImageUrl();
   const $img = $("#current-image");
-  if (!$img) return;
+  if (!$img.length) return;
 
   const tester = new Image;
 
