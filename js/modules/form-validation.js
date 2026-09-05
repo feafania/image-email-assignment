@@ -41,41 +41,41 @@ export function initFormValidation() {
       $field.data("debounceTimer", timer);
     });
   }
+}
 
-  $form.on("submit", function (event) {
-    event.preventDefault();
+export function isFormValid($form) {
+  $form.data("submitted", true);
+  const fields = $form.find("input, textarea");
 
-    $form.data("submitted", true);
+  const $submitBtn = $form.find('button[type="submit"]');
+  $submitBtn.prop("disabled", true);
 
-    const $submitBtn = $form.find('button[type="submit"]');
-    $submitBtn.prop("disabled", true);
+  let isFormValid = true;
 
-    let isFormValid = true;
+  fields.each(function () {
+    const $field = $(this);
+    $field.data("touched", true);
 
-    fields.each(function () {
-      const $field = $(this);
-      $field.data("touched", true);
-
-      if (!validateField($field)) {
-        isFormValid = false;
-      }
-    });
-
-    if (isFormValid) {
-      $form.addClass("is-success");
-
-      clearTimeout($form.data("successTimer"));
-      const timer = setTimeout(() => {
-        resetForm($(this));
-      }, successResetDelay);
-      $form.data("successTimer", timer);
-
-    } else {
-      fields.filter(".is-invalid").first().focus();
+    if (!validateField($field)) {
+      isFormValid = false;
     }
-
-    $submitBtn.prop("disabled", false);
   });
+
+  if (isFormValid) {
+    $form.addClass("is-success");
+
+    clearTimeout($form.data("successTimer"));
+    const timer = setTimeout(() => {
+      resetForm($(this));
+    }, successResetDelay);
+    $form.data("successTimer", timer);
+
+  } else {
+    fields.filter(".is-invalid").first().focus();
+  }
+
+  $submitBtn.prop("disabled", false);
+  return isFormValid;
 }
 
 function validateField($field) {
@@ -160,7 +160,7 @@ function resetForm($form) {
     const $field = $(this);
     clearTimeout($field.data("debounceTimer"));
 
-    $field.val("");
+    // $field.val("");
     clearError($field);
     initFieldState($field);
   });
