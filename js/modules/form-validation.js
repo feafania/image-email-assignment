@@ -50,23 +50,23 @@ export function isFormValid($form) {
   const $submitBtn = $form.find('button[type="submit"]');
   $submitBtn.prop("disabled", true);
 
-  let isFormValid = true;
+  let validForm = true;
 
   fields.each(function () {
     const $field = $(this);
     $field.data("touched", true);
 
     if (!validateField($field)) {
-      isFormValid = false;
+      validForm = false;
     }
   });
 
-  if (isFormValid) {
+  if (validForm) {
     $form.addClass("is-success");
 
     clearTimeout($form.data("successTimer"));
     const timer = setTimeout(() => {
-      resetForm($(this));
+      resetForm($form);
     }, successResetDelay);
     $form.data("successTimer", timer);
 
@@ -75,7 +75,7 @@ export function isFormValid($form) {
   }
 
   $submitBtn.prop("disabled", false);
-  return isFormValid;
+  return validForm;
 }
 
 function validateField($field) {
