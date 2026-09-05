@@ -14,7 +14,7 @@
 
 .assignment-card__image {
     position: relative;
-    border-radius: 4px;
+    border-radius: $image-radius-base;
     overflow: hidden;
     border: 1px solid $color-border;
 

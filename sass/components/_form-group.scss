@@ -17,7 +17,7 @@
         font-size: 1rem;
         padding: spacer(sm) spacer(md);
         border: 1px solid $color-border;
-        border-radius: 8px;
+        border-radius: $radius-base;
         background: $color-bg;
         color: $color-text;
         transition: border-color $transition-base, box-shadow $transition-base;

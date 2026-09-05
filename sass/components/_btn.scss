@@ -10,7 +10,7 @@
 
     width: 100%;
     border: none;
-    border-radius: 8px;
+    border-radius: $radius-base;
     padding: spacer(md) spacer(xl);
 
     font-family: $font-main;
@@ -33,6 +33,12 @@
 
         &:hover {
             background: color.adjust($color-primary, $lightness: -8%);
+        }
+
+        &:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            pointer-events: none;
         }
     }
 

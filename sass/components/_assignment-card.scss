@@ -4,7 +4,7 @@
 .assignment-card {
     padding: spacer(xl);
     border: 1px solid $color-border;
-    border-radius: 8px;
+    border-radius: $radius-base;
     margin-bottom: spacer(xl);
 
     transition: border-color $transition-base, box-shadow $transition-base;
@@ -56,7 +56,7 @@
 
         width: 32px;
         height: 32px;
-        border-radius: 6px;
+        border-radius: $remove-radius-base;
         color: $color-text-light;
         font-size: .9375rem;
         transition: color $transition-base, background-color $transition-base;

@@ -46,10 +46,15 @@ $spacer: (
 
 $line-height-base: 1.5;
 
+/* BORDER */
+$radius-base: 8px;
+$image-radius-base: 4px;
+$remove-radius-base: 6px;
+
 // Z-INDEX LAYERS
 
 /* PATHS */
 $assets-path: "../assets/";
 
 /* TRANSITION  */
-$transition-base: .25s ease;
+$transition-base: .3s ease;
