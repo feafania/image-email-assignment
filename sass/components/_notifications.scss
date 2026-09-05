@@ -1,0 +1,77 @@
+@use "../abstracts" as *;
+@use "sass:color";
+
+#notifications {
+    position: fixed;
+    top: spacer(xl);
+    right: spacer(xl);
+
+    display: flex;
+    flex-direction: column;
+    gap: spacer(sm);
+
+    z-index: 1000;
+
+    pointer-events: none;
+
+    @include respond-to(sm, null, max) {
+        left: spacer(lg);
+        right: spacer(lg);
+    }
+}
+
+.notification {
+    display: flex;
+    align-items: flex-start;
+    gap: spacer(sm);
+
+    background-color: $color-bg;
+
+    min-width: 280px;
+    max-width: 360px;
+
+    padding: spacer(lg);
+
+    border-radius: $radius-base;
+    border: 1px solid transparent;
+
+    font-family: $font-main;
+    font-size: .9375rem;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-base;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .1);
+
+    opacity: 0;
+    transform: translateY(-10px);
+
+    transition:
+            opacity $transition-base,
+            transform $transition-base;
+
+    pointer-events: auto;
+
+
+    &--visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &--success {
+        background-color: color.mix($color-success, $color-bg, 12%);
+        border-color: rgba($color-success, .3);
+        color: color.adjust($color-success, $lightness: -8%);
+    }
+
+    &--info {
+        background-color: color.mix($color-primary, $color-bg, 12%);
+        border-color: rgba($color-primary, .3);
+        color: color.adjust($color-primary, $lightness: -8%);
+    }
+
+    &--error {
+        background-color: color.mix($color-error, $color-bg, 12%);
+        border-color: rgba($color-error, .3);
+        color: color.adjust($color-error, $lightness: -8%);
+    }
+}

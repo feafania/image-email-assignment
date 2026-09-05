@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* BREAKPOINTS */
 /* WIDTH */
+/* BORDER */
 /* PATHS */
 /* TRANSITION  */
 .assignment-card {
@@ -162,7 +163,7 @@ p {
   color: #333333;
   text-decoration: none;
   font-size: 0.875rem;
-  transition: color 0.25s ease;
+  transition: color 0.3s ease;
 }
 .footer__socials a i {
   font-size: 1.125rem;
@@ -237,7 +238,7 @@ p {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.25s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .btn:active {
   transform: scale(0.98);
@@ -248,6 +249,11 @@ p {
 }
 .btn-primary:hover {
   background: rgb(36.2578313253, 131.7662650602, 183.9421686747);
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 .btn-secondary {
   background: transparent;
@@ -263,7 +269,7 @@ p {
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   margin-bottom: 1.25rem;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .assignment-card:last-child {
   margin-bottom: 0;
@@ -306,7 +312,7 @@ p {
   border-radius: 6px;
   color: #6b7280;
   font-size: 0.9375rem;
-  transition: color 0.25s ease, background-color 0.25s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 .assignment-card__remove:hover {
   color: #d64545;
@@ -331,7 +337,7 @@ p {
   border-radius: 8px;
   background: #ffffff;
   color: #333333;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .assignment-form__group input::placeholder {
   color: #9ca3af;
@@ -383,7 +389,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.25s ease;
+  transition: transform 0.3s ease;
 }
 .image-card__wrapper:hover img {
   transform: scale(1.02);
@@ -408,7 +414,7 @@ p {
   background: #2f9bd6;
   color: #ffffff;
   cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.25s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   font-weight: 900;
   font-size: 1.125rem;
 }
@@ -442,7 +448,7 @@ p {
   object-fit: cover;
   object-position: center;
   cursor: pointer;
-  transition: transform 0.25s ease;
+  transition: transform 0.3s ease;
 }
 .assignment-card__image:hover img, .assignment-card__image:focus-within img {
   transform: scale(1.06);
@@ -462,7 +468,7 @@ p {
   font-size: 0.6875rem;
   opacity: 0;
   transform: translateY(-4px);
-  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
 }
 .assignment-card__image-remove:hover {
   background: #d64545;
@@ -480,6 +486,63 @@ p {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+#notifications {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  z-index: 1000;
+  pointer-events: none;
+}
+@media (max-width: 767px) {
+  #notifications {
+    left: 1rem;
+    right: 1rem;
+  }
+}
+
+.notification {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  background-color: #ffffff;
+  min-width: 280px;
+  max-width: 360px;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.5;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: auto;
+}
+.notification--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.notification--success {
+  background-color: rgb(230.04, 243.24, 235.8);
+  border-color: rgba(47, 157, 95, 0.3);
+  color: rgb(37.6, 125.6, 76);
+}
+.notification--info {
+  background-color: rgb(230.04, 243, 250.08);
+  border-color: rgba(47, 155, 214, 0.3);
+  color: rgb(36.2578313253, 131.7662650602, 183.9421686747);
+}
+.notification--error {
+  background-color: rgb(250.08, 232.68, 232.68);
+  border-color: rgba(214, 69, 69, 0.3);
+  color: rgb(198.4546255507, 43.7453744493, 43.7453744493);
 }
 
 @keyframes fade-in {
