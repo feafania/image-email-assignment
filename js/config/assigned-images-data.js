@@ -1,4 +1,4 @@
-const assignments = {
+const assignedImages = {
   // "john@email.com": [
   //   "image-url-1",
   //   "image-url-2"
@@ -8,4 +8,4 @@ const assignments = {
   // ]
 };
 
-export default assignments;
+export default assignedImages;
