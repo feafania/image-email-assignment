@@ -10,7 +10,7 @@
   animation: fade-in-up 0.6s ease forwards;
 }
 
-.assignment-card__image-remove:focus-visible, .image-card__btn:focus-visible, .assignment-card__remove:focus-visible, .btn:focus-visible, .footer__socials a:focus-visible, a:focus-visible, button:focus-visible {
+.confirm__btn:focus-visible, .assignment-card__image-remove:focus-visible, .image-card__btn:focus-visible, .assignment-card__remove:focus-visible, .btn:focus-visible, .footer__socials a:focus-visible, a:focus-visible, button:focus-visible {
   outline: 2px solid #2f9bd6;
   outline-offset: 4px;
 }
@@ -543,6 +543,82 @@ p {
   background-color: rgb(250.08, 232.68, 232.68);
   border-color: rgba(214, 69, 69, 0.3);
   color: rgb(198.4546255507, 43.7453744493, 43.7453744493);
+}
+
+#confirmation-container {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  pointer-events: none;
+}
+
+.confirm {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(27, 31, 39, 0.5);
+  opacity: 0;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+.confirm--visible {
+  opacity: 1;
+}
+.confirm__modal {
+  width: min(100%, 420px);
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+.confirm--visible .confirm__modal {
+  transform: translateY(0);
+}
+.confirm__title {
+  margin: 0 0 0.625rem;
+  color: #1b1f27;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.confirm__text {
+  margin: 0 0 1.25rem;
+  color: #6b7280;
+}
+.confirm__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.625rem;
+}
+.confirm__btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 0.625rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.confirm__btn:active {
+  transform: scale(0.98);
+}
+.confirm__btn--cancel {
+  background: #e5e7eb;
+  color: #333333;
+}
+.confirm__btn--cancel:hover {
+  background: rgb(205.9391304348, 209.7130434783, 217.2608695652);
+}
+.confirm__btn--confirm {
+  background: #d64545;
+  color: #ffffff;
+}
+.confirm__btn--confirm:hover {
+  background: rgb(198.4546255507, 43.7453744493, 43.7453744493);
 }
 
 @keyframes fade-in {

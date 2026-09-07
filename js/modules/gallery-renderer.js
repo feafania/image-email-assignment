@@ -1,5 +1,6 @@
   import { hasAssignment, removeAssignment, removeImageFromAssignments } from "./assignments-manager.js";
   import ERROR_MESSAGES from "../config/errors.js";
+  import { showConfirmation } from "./confirm-dialog.js";
 
   export function updateImageGallery({ email, image } = {}) {
     if (!email) {
@@ -90,20 +91,29 @@
       .attr("aria-label", ariaLabel)
       .html('<i class="fa-solid fa-trash-can"></i>');
 
-    $button.on('click', function(e) {
+    $button.on('click', async function(e) {
 
       e.stopPropagation();
+
+      const $trigger = $(this);
+      const confirmed = await showConfirmation();
+      if (!confirmed) {
+        $trigger[0]?.focus();
+        return;
+      }
+
       try {
         removeFn(...args);
-        let $object = $(this).closest(closest);
+        let $object = $trigger.closest(closest);
         const email = args?.[0]?.email;
 
-        if (removeParentIfEmpty && email && !hasAssignment([email])) {
+        if (removeParentIfEmpty && email && !hasAssignment(email)) {
           $object = $object.closest(".assignment-card");
         }
         $object.remove();
       } catch (e) {
         console.error(e);
+        $trigger[0]?.focus();
       }
     });
 
