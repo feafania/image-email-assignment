@@ -5,8 +5,8 @@ export default function initImageButtonHandler() {
   getRandomImage();
 }
 
-function getRandomImage() {
-  const url = getRandomImageUrl();
+async function getRandomImage() {
+  const url = await getRandomImageUrl();
   const $img = $("#current-image");
   if (!$img.length) return;
 
