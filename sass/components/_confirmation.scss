@@ -1,0 +1,116 @@
+@use "../abstracts" as *;
+@use "../states" as *;
+@use "sass:color";
+
+#confirmation-container {
+    position: fixed;
+    inset: 0;
+    z-index: $z-confirmation;
+
+    pointer-events: none;
+}
+
+.confirm {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: spacer(lg);
+
+    background: rgba($color-dark, .5);
+
+    opacity: 0;
+
+    pointer-events: auto;
+
+    transition: opacity $transition-base;
+
+    &--visible {
+        opacity: 1;
+    }
+
+    &__modal {
+        width: min(100%, 420px);
+
+        background: $color-bg;
+        border-radius: $radius-base;
+        padding: spacer(xxl);
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+
+        transform: translateY(10px);
+
+        transition: transform $transition-base;
+    }
+
+    &--visible &__modal {
+        transform: translateY(0);
+    }
+
+    &__title {
+        margin: 0 0 spacer(sm);
+
+        color: $color-dark;
+
+        font-size: 1.125rem;
+        font-weight: $font-weight-bold;
+    }
+
+    &__text {
+        margin: 0 0 spacer(xl);
+
+        color: $color-text-light;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: spacer(sm);
+    }
+
+    &__btn {
+        border: 0;
+        border-radius: $radius-base;
+
+        padding: spacer(sm) spacer(lg);
+
+        font: inherit;
+        font-weight: $font-weight-demi;
+
+        cursor: pointer;
+
+        transition:
+                background-color $transition-base,
+                color $transition-base,
+                transform $transition-base;
+        
+        &:focus-visible {
+            @extend %focus-ring;
+        }
+
+        &:active {
+            transform: scale(.98);
+        }
+
+        &--cancel {
+            background: $color-border;
+            color: $color-text;
+
+            &:hover {
+                background: color.adjust($color-border, $lightness: -8%);
+            }
+        }
+
+        &--confirm {
+            background: $color-error;
+            color: $color-bg;
+
+            &:hover {
+                background: color.adjust($color-error, $lightness: -8%);
+            }
+        }
+    }
+}

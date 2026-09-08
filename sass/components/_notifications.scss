@@ -10,7 +10,7 @@
     flex-direction: column;
     gap: spacer(sm);
 
-    z-index: 1000;
+    z-index: $z-notifications;
 
     pointer-events: none;
 
